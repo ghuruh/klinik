@@ -18,9 +18,13 @@ app.get('/', (req, res) => {
 // Sync Database and Start Server
 sequelize.sync({ force: false }).then(() => {
   console.log('Database connected');
-  app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
+  if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+  }
 }).catch(err => {
   console.error('Database connection error:', err);
 });
+
+module.exports = app;

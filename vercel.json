@@ -2,16 +2,8 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "/api/:path*",
+      "source": "/api/(.*)",
       "destination": "/backend/server.js"
-    },
-    {
-      "source": "/_next/:path*",
-      "destination": "/frontend/_next/:path*"
-    },
-    {
-      "source": "/(static|favicon.ico|images)/:path*",
-      "destination": "/frontend/public/:path*"
     },
     {
       "source": "/(.*)",
